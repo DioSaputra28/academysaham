@@ -27,15 +27,29 @@ const stats = [
   { number: '24/7', label: 'Support' }
 ]
 
-// Smooth scroll with delay effect
+// Smooth scroll with delay effect using Intersection Observer
 onMounted(() => {
-  let scrollTimeout
-  document.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout)
-    document.body.classList.add('scrolling')
-    scrollTimeout = setTimeout(() => {
-      document.body.classList.remove('scrolling')
-    }, 150)
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add delay before showing section
+        setTimeout(() => {
+          entry.target.classList.add('visible')
+        }, 100)
+      }
+    })
+  }, observerOptions)
+
+  // Observe all sections
+  const sections = document.querySelectorAll('section')
+  sections.forEach((section) => {
+    observer.observe(section)
   })
 })
 </script>
