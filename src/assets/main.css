@@ -9,7 +9,7 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   scroll-padding-top: 0;
 }
 
@@ -21,23 +21,4 @@ body {
 
 * {
   font-family: 'Mulish', sans-serif;
-}
-
-/* Smooth scroll with delay effect */
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* First section should be visible immediately */
-section:first-of-type {
-  opacity: 1;
-  transform: translateY(0);
 }
