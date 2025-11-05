@@ -1,0 +1,26 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap
+Sitemap: https://academysaham.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Popular bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
