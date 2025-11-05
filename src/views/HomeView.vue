@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-
 const features = [
   {
     title: 'Analisis Teknikal',
@@ -27,31 +25,14 @@ const stats = [
   { number: '24/7', label: 'Support' }
 ]
 
-// Smooth scroll with delay effect using Intersection Observer
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Add delay before showing section
-        setTimeout(() => {
-          entry.target.classList.add('visible')
-        }, 100)
-      }
-    })
-  }, observerOptions)
-
-  // Observe all sections
-  const sections = document.querySelectorAll('section')
-  sections.forEach((section) => {
-    observer.observe(section)
-  })
-})
+const testimonials = [
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037122-Compressify.io_.webp' },
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037650-Compressify.io_.webp' },
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037651-Compressify.io_.webp' },
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037652-Compressify.io_.webp' },
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037654-Compressify.io_.webp' },
+  { image: 'https://akademicrypto.com/wp-content/uploads/2025/10/Frame-654037655-Compressify.io_.webp' }
+]
 </script>
 
 <template>
@@ -59,25 +40,25 @@ onMounted(() => {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <div class="badge">#1 Platform Edukasi Saham untuk Gen-Z</div>
-        <h1 class="hero-title">
+        <div class="badge" data-aos="fade-up" data-aos-delay="0">#1 Platform Edukasi Saham untuk Gen-Z</div>
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
           Mulai Journey <span class="highlight-text">Trading Saham</span> dari Nol
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
           No gatekeeping, no ribet. Belajar invest & trading saham dengan cara yang fun,
           modern, dan actually bikin kamu cuan. From zero to hero!
         </p>
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
           <button class="btn btn-primary">Mulai Belajar Gratis</button>
           <button class="btn btn-secondary">Lihat Testimoni</button>
         </div>
-        <div class="hero-stats">
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
           <div class="stat-item">4.9/5 Rating</div>
           <div class="stat-item">10,000+ Students</div>
           <div class="stat-item">Award Winning</div>
         </div>
       </div>
-      <div class="hero-visual">
+      <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
         <div class="video-container">
           <iframe
             src="https://www.youtube.com/embed/VNoVoxYscNo"
@@ -94,7 +75,7 @@ onMounted(() => {
     <!-- About Section -->
     <section class="about">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <span class="section-tag">Why Us?</span>
           <h2 class="section-title">Kenapa Harus Belajar Saham Sekarang?</h2>
           <p class="section-subtitle">
@@ -103,15 +84,15 @@ onMounted(() => {
           </p>
         </div>
         <div class="about-grid">
-          <div class="about-card">
+          <div class="about-card" data-aos="fade-up" data-aos-delay="100">
             <h3>Start dari Kecil</h3>
             <p>Mulai invest dari 100rb aja. No need modal gede. Step by step aja!</p>
           </div>
-          <div class="about-card">
+          <div class="about-card" data-aos="fade-up" data-aos-delay="200">
             <h3>Learn by Doing</h3>
             <p>Praktik langsung dengan live market simulation. Theory + practice = unstoppable!</p>
           </div>
-          <div class="about-card">
+          <div class="about-card" data-aos="fade-up" data-aos-delay="300">
             <h3>Community Support</h3>
             <p>Join komunitas trader muda yang supportive. Share insights, grow together!</p>
           </div>
@@ -122,7 +103,7 @@ onMounted(() => {
     <!-- Features Section -->
     <section class="features">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <span class="section-tag">What You'll Learn</span>
           <h2 class="section-title">Skill yang Bakal Kamu Master</h2>
         </div>
@@ -131,6 +112,8 @@ onMounted(() => {
             v-for="(feature, index) in features"
             :key="index"
             class="feature-card"
+            data-aos="fade-up"
+            :data-aos-delay="(index + 1) * 100"
           >
             <h3 class="feature-title">{{ feature.title }}</h3>
             <p class="feature-description">{{ feature.description }}</p>
@@ -147,6 +130,8 @@ onMounted(() => {
             v-for="(stat, index) in stats"
             :key="index"
             class="stat-card"
+            data-aos="zoom-in"
+            :data-aos-delay="(index + 1) * 100"
           >
             <div class="stat-number">{{ stat.number }}</div>
             <div class="stat-label">{{ stat.label }}</div>
@@ -155,10 +140,34 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Success Stories</span>
+          <h2 class="section-title">Testimoni dari Para Student</h2>
+          <p class="section-subtitle">
+            Ribuan student sudah merasakan perubahan. Sekarang giliran kamu!
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <div
+            v-for="(testimonial, index) in testimonials"
+            :key="index"
+            class="testimonial-card"
+            data-aos="fade-up"
+            :data-aos-delay="(index % 3) * 100"
+          >
+            <img :src="testimonial.image" :alt="'Testimonial ' + (index + 1)" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="container">
-        <div class="cta-content">
+        <div class="cta-content" data-aos="zoom-in">
           <h2 class="cta-title">Ready to Level Up Your Financial Game?</h2>
           <p class="cta-text">
             Jangan tunda lagi! Setiap hari yang terlewat adalah opportunity yang hilang.
@@ -477,6 +486,41 @@ body.scrolling .landing-page {
   color: #888;
 }
 
+/* Testimonials Section */
+.testimonials {
+  padding: 8rem 0;
+  background: #000000;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1565c0;
+  transition: all 0.3s ease;
+  background: #0a0a0a;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  border-color: #2979ff;
+  box-shadow: 0 12px 48px rgba(21, 101, 192, 0.4);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 /* CTA Section */
 .cta-section {
   padding: 8rem 0;
@@ -622,6 +666,11 @@ body.scrolling .landing-page {
   .about-grid,
   .features-grid {
     grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .stats-grid {
