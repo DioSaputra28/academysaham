@@ -62,11 +62,12 @@ const testimonials = [
         <div class="video-container">
           <iframe
             src="https://www.youtube.com/embed/VNoVoxYscNo"
-            title="Hoki Datang ke Mereka yang Berani"
+            title="Video Motivasi Trading Saham - Hoki Datang ke Mereka yang Berani | Academy Saham"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
+            allowfullscreen
+            loading="lazy">
           </iframe>
         </div>
       </div>
@@ -158,7 +159,13 @@ const testimonials = [
             data-aos="fade-up"
             :data-aos-delay="(index % 3) * 100"
           >
-            <img :src="testimonial.image" :alt="'Testimonial ' + (index + 1)" loading="lazy" />
+            <img
+              :src="testimonial.image"
+              :alt="`Testimoni student Academy Saham #${index + 1} - Sukses belajar trading dan investasi saham`"
+              loading="lazy"
+              :width="400"
+              :height="400"
+            />
           </div>
         </div>
       </div>
